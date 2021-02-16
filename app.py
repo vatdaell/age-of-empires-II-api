@@ -5,14 +5,18 @@ from api import create_app
 from db.populate_tables import populate_db
 from db import db
 from collections import OrderedDict
+from flask_cors import CORS
 
 app = create_app(APP_CONFIG)
+CORS(app)
+
 
 @app.before_first_request
 def create_tables():
     if not database_exists(DB_NAME):
         db.create_all()
         populate_db()
+
 
 @app.route("/" + API_PREFIX)
 def show_resources():

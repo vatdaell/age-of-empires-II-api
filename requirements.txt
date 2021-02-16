@@ -6,5 +6,6 @@ python-coveralls
 coverage
 flasgger
 pytest
-uwsgi
 pandas
+uwsgi
+flask-cors
